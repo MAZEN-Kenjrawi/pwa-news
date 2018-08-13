@@ -14,12 +14,11 @@ window.addEventListener('load', async e => {
      });
 
      if('serviceWorker' in navigator) {
-         try {
-            navigator.serviceWorker.register('assets/js/sw.js');
-            console.log(`ServiceWroker registered!`);
-         } catch (error) {
-            console.log(`ServiceWroker reg failed!`);
-         }
+        navigator.serviceWorker.register('sw.js')
+            .then(() => {console.log(`ServiceWroker registered!`);})
+            .catch((error) => {console.log(`ServiceWroker reg failed! Error: ${error}`);});
+     } else {
+        console.log(`ServiceWroker is not supported!`);
      }
 });
 
