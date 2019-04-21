@@ -41,9 +41,9 @@ function buildArticlesList(article) {
         <div class="card-body">
             <h5 class="card-title">${article.title}</h5>
         </div>
-        <img style="width: 100%; display: block;" src="${article.urlToImage}" alt="${article.title}">
+        ${(article.urlToImage != null)? '<img style="width: 100%; display: block;" src="'+ article.urlToImage +'" alt="'+ article.title +'">' : '<img style="width: 100%; display: block;" src="./assets/images/noimage.jpg" alt="No image - '+ article.title +'">'}
         <div class="card-body">
-            <p class="card-text">${article.description}</p>
+            ${(article.description != null)? '<p class="card-text">' + article.description + '</p>' : ''}
             <a target="_blank" href="${article.url}" class="btn btn-info">Read More</a>
         </div>
     </div>
