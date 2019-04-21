@@ -2,7 +2,8 @@ const staticAssets = [
     './',
     './assets/css/bootswatch.css',
     './assets/css/styles.css',
-    './app.js'
+    './app.js',
+    './assets/images/noimage.jpg'
 ];
 self.addEventListener('install', async e => {
     const cache = await caches.open('news-static');
@@ -10,7 +11,6 @@ self.addEventListener('install', async e => {
 });
 
 self.addEventListener('fetch', e => {
-    console.log('Fetching');
     const req = e.request;
     e.respondWith(cacheFirst(req));
 });
