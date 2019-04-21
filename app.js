@@ -9,7 +9,6 @@ window.addEventListener('load', async e => {
      selectSources.value = defaultSource;
 
      selectSources.addEventListener('change', e => {
-         console.log(e.target.value);
          updateNews(e.target.value);
      });
 
@@ -23,7 +22,7 @@ window.addEventListener('load', async e => {
 });
 
 async function updateNews(source = defaultSource) {
-    const result = await fetch(`https://newsapi.org/v2/top-headlines?source=${source}&category=technology&apiKey=${apiKey}`);
+    const result = await fetch(`https://newsapi.org/v2/top-headlines?sources=${source}&category=technology&apiKey=${apiKey}`);
     const json = await result.json();
 
     newsList.innerHTML = json.articles.map(buildArticlesList).join('\n');
